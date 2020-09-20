@@ -16,6 +16,7 @@ import dagger.Component;
 // DaggerApplicationComponent. Role of a component is to list all the classes(eg. MyApplication)
 // which needs to be scanned by Dagger, using the inject() method. Singleton annotation tells
 // Dagger to provide only one instance(singleton) of the dependency.
+// All components must be marked with a scope (Singleton, ActivityScope etc)
 @Singleton
 @Component(modules = {ApplicationModule.class})
 public interface ApplicationComponent {

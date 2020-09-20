@@ -1,6 +1,7 @@
 package com.mindorks.bootcamp.learndagger.di.modules;
 
 import android.app.Activity;
+import android.content.Context;
 
 import com.mindorks.bootcamp.learndagger.data.local.DatabaseService;
 import com.mindorks.bootcamp.learndagger.data.remote.NetworkService;
@@ -19,12 +20,19 @@ public class ActivityModule {
         this.activity = activity;
     }
 
-    @ActivityScope
     @Provides
-    MainViewModel provideMainViewModel(DatabaseService databaseService,
-                                       NetworkService networkService) {
-        return new MainViewModel(databaseService, networkService);
+    Context provideContext() {
+        return activity;
     }
+
+// Below lines are not needed as we are using @Inject in the constructor
+// of MainViewModel
+//    @ActivityScope
+//    @Provides
+//    MainViewModel provideMainViewModel(DatabaseService databaseService,
+//                                       NetworkService networkService) {
+//        return new MainViewModel(databaseService, networkService);
+//    }
 
 
 // Don't create db and nw service manually here, reuse the one created in application class

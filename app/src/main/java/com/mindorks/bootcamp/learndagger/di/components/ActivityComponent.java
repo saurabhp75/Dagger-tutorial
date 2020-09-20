@@ -10,7 +10,8 @@ import dagger.Component;
 // This way we can share instances/dependencies across the components.
 //@Component(modules = {ActivityModule.class})
 // ActivityScope isd the label which all the instances created by ActivityComponent are
-// marked with
+// marked with.
+// All components must be marked with a scope (Singleton, ActivityScope etc)
 @ActivityScope
 @Component(dependencies = {ApplicationComponent.class}, modules = {ActivityModule.class})
 public interface ActivityComponent {

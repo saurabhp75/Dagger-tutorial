@@ -1,13 +1,14 @@
-package com.mindorks.bootcamp.learndagger.di.scope;
+package com.mindorks.bootcamp.learndagger.di.qualifier;
 
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import javax.inject.Qualifier;
 import javax.inject.Scope;
 
-@Scope
+@Qualifier
 @Retention(RetentionPolicy.SOURCE)
-public @interface ActivityScope {
+public @interface DatabaseInfo {
 
 }
