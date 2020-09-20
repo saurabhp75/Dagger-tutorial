@@ -3,6 +3,7 @@ package com.mindorks.bootcamp.learndagger.ui;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.mindorks.bootcamp.learndagger.MyApplication;
 import com.mindorks.bootcamp.learndagger.R;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // initialize MainViewModel
-        viewModel = new MainViewModel(this.getApplicationContext());
+        MyApplication app = (MyApplication) getApplication();
+        viewModel = new MainViewModel(app.databaseService, app.networkService);
 
         TextView tvData = findViewById(R.id.tvData);
         tvData.setText(viewModel.getSomeData());

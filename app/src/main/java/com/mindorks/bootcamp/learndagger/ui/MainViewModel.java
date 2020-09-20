@@ -10,9 +10,9 @@ public class MainViewModel {
     private DatabaseService databaseService;
     private NetworkService networkService;
 
-    public MainViewModel(Context context) {
-        networkService = new NetworkService(context);
-        databaseService = new DatabaseService(context);
+    public MainViewModel(DatabaseService databaseService, NetworkService networkService) {
+        this.databaseService = databaseService;
+        this.networkService = networkService;
     }
 
     public String getSomeData() {
