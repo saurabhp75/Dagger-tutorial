@@ -1,6 +1,8 @@
 package com.mindorks.bootcamp.learndagger.di.components;
 
 import com.mindorks.bootcamp.learndagger.MyApplication;
+import com.mindorks.bootcamp.learndagger.data.local.DatabaseService;
+import com.mindorks.bootcamp.learndagger.data.remote.NetworkService;
 import com.mindorks.bootcamp.learndagger.di.modules.ApplicationModule;
 
 import javax.inject.Singleton;
@@ -21,4 +23,10 @@ public interface ApplicationComponent {
     // The parameter of inject will be the class, which needs the instance/dependency
     // Here for eg. it is MyApplication.
     void inject(MyApplication application);
+
+    // This method is used to provide nw instance to activity class
+    NetworkService getNetworkService();
+
+    // This method is used to provide db instance to activity class
+    DatabaseService getDatabaseService();
 }
